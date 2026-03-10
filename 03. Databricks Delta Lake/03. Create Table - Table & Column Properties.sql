@@ -26,6 +26,31 @@ TBLPROPERTIES ('sensitive' = 'true', 'delta.enableDeletionVectors' = 'false');
 
 -- COMMAND ----------
 
+-- MAGIC %md
+-- MAGIC 1️⃣ sensitive = true
+-- MAGIC
+-- MAGIC Marks the table as containing sensitive data (like PII).
+-- MAGIC
+-- MAGIC Mainly used for governance, security policies, or catalog tagging.
+-- MAGIC
+-- MAGIC Helps tools identify confidential datasets.
+-- MAGIC
+-- MAGIC ✅ Example: tables containing user emails, phone numbers, personal data.
+-- MAGIC
+-- MAGIC 2️⃣ delta.enableDeletionVectors = false
+-- MAGIC
+-- MAGIC Controls Deletion Vectors in Delta Lake.
+-- MAGIC
+-- MAGIC Deletion vectors allow row-level deletes without rewriting Parquet files.
+-- MAGIC
+-- MAGIC Setting it to false disables this optimization.
+-- MAGIC
+-- MAGIC Meaning:
+-- MAGIC
+-- MAGIC Deletes will rewrite data files instead of marking rows as deleted.
+
+-- COMMAND ----------
+
 DESC EXTENDED demo.delta_lake.companies;
 
 -- COMMAND ----------

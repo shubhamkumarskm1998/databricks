@@ -22,7 +22,7 @@ DESCRIBE HISTORY demo.delta_lake.companies;
 
 -- COMMAND ----------
 
-SELECT * FROM demo.delta_lake.companies;
+SELECT * FROM demo.delta_lake.companies version as of 0;
 
 -- COMMAND ----------
 
