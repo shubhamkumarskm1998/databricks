@@ -24,13 +24,13 @@
 -- COMMAND ----------
 
 CREATE EXTERNAL LOCATION IF NOT EXISTS dea_course_ext_dl_circuitbox
-  URL 'abfss://circuitbox@deacourseextdl.dfs.core.windows.net/'
-  WITH (STORAGE CREDENTIAL dea_course_ext_sc)
+  URL 'abfss://circuitbox@deacourseextdlshubh.dfs.core.windows.net/'
+  WITH (STORAGE CREDENTIAL dea-course-ext-sc)
   COMMENT 'External Location for the circuitbox data lakehouse';
 
 -- COMMAND ----------
 
--- MAGIC %fs ls 'abfss://circuitbox@deacourseextdl.dfs.core.windows.net/'
+-- MAGIC %fs ls 'abfss://circuitbox@deacourseextdlshubh.dfs.core.windows.net/'
 
 -- COMMAND ----------
 
@@ -42,7 +42,7 @@ CREATE EXTERNAL LOCATION IF NOT EXISTS dea_course_ext_dl_circuitbox
 -- COMMAND ----------
 
 CREATE CATALOG IF NOT EXISTS circuitbox
-  MANAGED LOCATION 'abfss://circuitbox@deacourseextdl.dfs.core.windows.net/'
+  MANAGED LOCATION 'abfss://circuitbox@deacourseextdlshubh.dfs.core.windows.net/'
   COMMENT 'Catalog for the circuitbox data lakehouse';
 
 -- COMMAND ----------
@@ -63,10 +63,10 @@ SHOW CATALOGS;
 USE CATALOG circuitbox;
 
 CREATE SCHEMA IF NOT EXISTS landing
-   MANAGED LOCATION 'abfss://circuitbox@deacourseextdl.dfs.core.windows.net/landing';
+   MANAGED LOCATION 'abfss://circuitbox@deacourseextdlshubh.dfs.core.windows.net/landing';
 
 CREATE SCHEMA IF NOT EXISTS lakehouse
-   MANAGED LOCATION 'abfss://circuitbox@deacourseextdl.dfs.core.windows.net/lakehouse';
+   MANAGED LOCATION 'abfss://circuitbox@deacourseextdlshubh.dfs.core.windows.net/lakehouse';
 
 -- COMMAND ----------
 
@@ -85,7 +85,7 @@ USE CATALOG circuitbox;
 USE SCHEMA landing;
 
 CREATE EXTERNAL VOLUME IF NOT EXISTS operational_data
-      LOCATION 'abfss://circuitbox@deacourseextdl.dfs.core.windows.net/landing/operational_data';
+      LOCATION 'abfss://circuitbox@deacourseextdlshubh.dfs.core.windows.net/landing/operational_data';
 
 -- COMMAND ----------
 
